@@ -10,8 +10,12 @@ module.exports = {
     },
     rinkeby: {
       provider: function () {
+        //Helps to automatically sign transactions. Otherwise we would have to manually create
+        //each transaction
         return new HDWalletProvider({
+          //Private key
           privateKeys: [process.env.PRIVATE_KEY_1],
+          //Connection link
           providerOrUrl: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
           numberOfAddresses: 1,
         });
